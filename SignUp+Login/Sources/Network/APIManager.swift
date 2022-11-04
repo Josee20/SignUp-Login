@@ -30,21 +30,19 @@ class APIManager {
     
     static let shared = APIManager()
     
-    
-    
     func signUp(newUserName: String, newEmail: String, newPassword: String) {
         
         let api = SeSACAPI.signUp(userName: newUserName, email: newEmail, password: newPassword)
-        
-        AF.request(api.url, method: .post, parameters: api.parameters, headers: api.headers).validate(statusCode: 200...299).responseString { response in
+
+        AF.request(api.url, method: .post, parameters: api.parameters, headers: api.headers).responseString(completionHandler: { response in
 
             print(response)
             print(response.response?.statusCode)
-        }
+        })
     }
     
-    func login() {
-        let api = SeSACAPI.login(email: "SyncLee@synclee.com", password: "0123456789")
+    func login(email: String, password: String) {
+        let api = SeSACAPI.login(email: email, password: password)
         
         AF.request(api.url, method: .post, parameters: api.parameters, headers: api.headers).validate(statusCode: 200...299).responseDecodable(of: Login.self) { response in
             
@@ -58,14 +56,16 @@ class APIManager {
         }
     }
     
-    func profile() {
+    func profile(completion: @escaping (Profile) ->() ) {
+        
         let api = SeSACAPI.profile
         
         AF.request(api.url, method: .get, headers: api.headers).validate(statusCode: 200...299).responseDecodable(of: Profile.self) { response in
             
             switch response.result {
             case .success(let data):
-                print(data)
+//                print(data)
+                completion(data)
             case .failure(_):
                 print(response.response?.statusCode)
             }

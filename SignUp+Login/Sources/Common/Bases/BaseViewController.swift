@@ -14,10 +14,11 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configureUI()
+        configure()
         
     }
     
-    func configureUI() { }
-
+    func configure() { }
+    
+    
 }

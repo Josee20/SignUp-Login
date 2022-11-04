@@ -44,14 +44,14 @@ extension SeSACAPI {
         switch self {
         case .signUp(let username, let email, let password):
             return [
-                "userName": "SyncLee",
-                "email": "SyncLee@synclee.com",
-                "password": "0123456789"
+                "userName": username,
+                "email": email,
+                "password": password
             ]
         case .login(email: let email, password: let password):
             return [
-                "email": "SyncLee@synclee.com",
-                "password": "0123456789"
+                "email": email,
+                "password": password
             ]
         default: return ["":""]
         }

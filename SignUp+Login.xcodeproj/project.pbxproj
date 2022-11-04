@@ -32,6 +32,7 @@
 		498672CE2912B14200F74C7F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498672CD2912B14200F74C7F /* LoginView.swift */; };
 		498672D02912B89100F74C7F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498672CF2912B89100F74C7F /* ProfileView.swift */; };
 		498672D22912C4A500F74C7F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498672D12912C4A500F74C7F /* UIViewController+.swift */; };
+		498672E929156E9100F74C7F /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 498672E829156E9100F74C7F /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				498672E929156E9100F74C7F /* Kingfisher in Frameworks */,
 				498672B629126ABB00F74C7F /* RxSwift in Frameworks */,
 				498672BF2912787400F74C7F /* SnapKit in Frameworks */,
 				498672B429126ABB00F74C7F /* RxCocoa in Frameworks */,
@@ -237,6 +239,7 @@
 				498672B529126ABB00F74C7F /* RxSwift */,
 				498672BE2912787400F74C7F /* SnapKit */,
 				498672C3291278B800F74C7F /* SwiftyJSON */,
+				498672E829156E9100F74C7F /* Kingfisher */,
 			);
 			productName = "SignUp+Login";
 			productReference = 4986727D29125FB200F74C7F /* SignUp+Login.app */;
@@ -271,6 +274,7 @@
 				498672B229126ABB00F74C7F /* XCRemoteSwiftPackageReference "RxSwift" */,
 				498672BD2912787400F74C7F /* XCRemoteSwiftPackageReference "SnapKit" */,
 				498672C2291278B800F74C7F /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				498672E729156E9100F74C7F /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 4986727E29125FB200F74C7F /* Products */;
 			projectDirPath = "";
@@ -559,6 +563,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		498672E729156E9100F74C7F /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -586,6 +598,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 498672C2291278B800F74C7F /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
+		};
+		498672E829156E9100F74C7F /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 498672E729156E9100F74C7F /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
