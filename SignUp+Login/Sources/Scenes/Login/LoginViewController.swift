@@ -23,6 +23,8 @@ class LoginViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         viewModel.email
             .withUnretained(self)
             .bind(onNext: { (vc, value) in
@@ -46,10 +48,13 @@ class LoginViewController: BaseViewController {
         mainView.loginButton.rx.tap
             .withUnretained(self)
             .bind(onNext: { vc, _ in
-                vc.viewModel.login(email: vc.mainView.emailTextField.text ?? "",
-                                   password: vc.mainView.passwordTextField.text ?? ""
+                vc.viewModel.login(email: vc.mainView.emailTextField.text!,
+                                   password: vc.mainView.passwordTextField.text!
                 )
-                self.transition(ProfileViewController(), transitionStyle: .presentFullScreen)
+                
+
+                let vc = ProfileViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
             })
             .disposed(by: disposeBag)
             

@@ -23,9 +23,13 @@ final class LoginViewModel {
     public var passwordValidation: BehaviorSubject<Bool> = BehaviorSubject(value: false)
     
     func login(email: String, password: String) {
-        APIManager.shared.login(email: email, password: password)
+        APIManager.shared.login(email: email, password: password, completion: { json in
+//            UserDefaults.standard.set(json.token, forKey: "token")
+            print("JSONINFO : \(json.token)")
+        })
     }
-    
+
+
     func checkLoginValidation(inputEmailValue: String, inputPasswordValue: String) {
         email.onNext(inputEmailValue)
         password.onNext(inputPasswordValue)

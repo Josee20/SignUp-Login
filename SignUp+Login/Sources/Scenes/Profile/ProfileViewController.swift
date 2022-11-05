@@ -52,10 +52,12 @@ class ProfileViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
-//            .asDriver(onErrorJustReturn: ProfileInfo(image: "", name: "", email: ""))
-//            .map { $0.image }
-//            .drive(mainView.profileImage.kf.setImage(with: <#T##Source?#>)))
-//            .disposed(by: disposeBag)
+        mainView.logOutButton.rx.tap
+            .bind { _ in
+                UserDefaults.standard.removeObject(forKey: "token")
+                self.mainView.window?.rootViewController?.dismiss(animated: true)
+            }
+            .disposed(by: disposeBag)
 
     }
 }

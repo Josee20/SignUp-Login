@@ -32,8 +32,28 @@ class ProfileView: BaseView {
         return view
     }()
     
+    let followersLabel: UILabel = {
+        let view = UILabel()
+        view.text = "팔로워 : 0"
+        return view
+    }()
+    
+    let followingLabel: UILabel = {
+        let view = UILabel()
+        view.text = "팔로잉: 0"
+        return view
+    }()
+    
+    let logOutButton: UIButton = {
+        let view = UIButton()
+        view.setTitle("로그아웃", for: .normal)
+        view.backgroundColor = .red
+        view.setTitleColor(.white, for: .normal)
+        return view
+    }()
+    
     override func configureUI() {
-        [profileImage, userNameLabel, emailLabel].forEach { self.addSubview($0) }
+        [profileImage, userNameLabel, emailLabel, followersLabel, followingLabel, logOutButton].forEach { self.addSubview($0) }
     }
     
     override func setConstraints() {
@@ -56,6 +76,25 @@ class ProfileView: BaseView {
             $0.leading.equalTo(profileImage.snp.leading)
             $0.height.equalTo(36)
             $0.topMargin.equalTo(userNameLabel.snp.bottom).offset(20)
+        }
+        
+        followersLabel.snp.makeConstraints {
+            $0.leading.equalTo(emailLabel.snp.leading)
+            $0.height.equalTo(30)
+            $0.topMargin.equalTo(emailLabel.snp.bottom).offset(20)
+        }
+        
+        followingLabel.snp.makeConstraints {
+            $0.leadingMargin.equalTo(followersLabel.snp.trailing).offset(32)
+            $0.height.equalTo(30)
+            $0.top.equalTo(followersLabel.snp.top)
+        }
+        
+        logOutButton.snp.makeConstraints {
+            $0.leading.equalTo(profileImage.snp.leading)
+            $0.height.equalTo(40)
+            $0.width.equalTo(profileImage.snp.width)
+            $0.topMargin.equalTo(followersLabel.snp.bottom).offset(44)
         }
     }
     

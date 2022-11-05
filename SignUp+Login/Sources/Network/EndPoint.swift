@@ -34,7 +34,8 @@ extension SeSACAPI {
             
         case .profile:
             return [
-                "Authorization": "Bearer \(UserDefaults.standard.string(forKey: "token")!)",
+//                guard let userDefaultToken = UserDefaults.standard.string(forKey: "token")
+                "Authorization": "Bearer \(UserDefaults.standard.string(forKey: "token") ?? "")",
                 "Content-Type": "application/x-www-form-urlencoded"
             ]
         }
